@@ -25,11 +25,11 @@ conn = sqlite3.connect(r'C:\arcgis\resources\database.sqlite')
 
 
 #query to get first nontweeted record
-Query = """Select * FROM lots5
+Query = """Select * FROM lots7
 where tweet =' ' 
 ORDER BY OBJECTID ASC 
 LIMIT 1"""
-  
+
 
 #function that builds the streetview url, downloads the image, then posts to twitter
 def GetStreet(Add,Add2,Add3,SaveLoc):
@@ -44,7 +44,7 @@ def GetStreet(Add,Add2,Add3,SaveLoc):
   
 #function that marks an address as tweeted
 def mark_as_tweeted(robot):
-   conn.execute("UPDATE lots5 SET tweet ='yes' where id2=" + robot)
+   conn.execute("UPDATE lots7 SET tweet ='yes' where id2=" + robot)
    conn.commit()
 
 
@@ -61,6 +61,3 @@ for row in cursor:
     
 #closes connection to database    
 conn.close()
-
-
-
